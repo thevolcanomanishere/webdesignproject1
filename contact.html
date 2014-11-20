@@ -15,12 +15,12 @@
         <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-    <body>
-<!-- start nav block -->
-        <br>
-<div class="container">
-    <img class="img-responsive img-rounded" src="img/mcg-logo-mid.png"/>
+<body>
     <br>
+    <div class="container">
+        <img class="img-responsive img-rounded" src="img/mcg-logo-mid.png"/>
+        <br>
+<!-- start nav block -->
         <nav>
             <ul class="nav nav-pills">
                 <li role="presentation"><a href="index.html">Home</a></li>
@@ -29,21 +29,61 @@
                 <li role="presentation"><a href="location.html">Location</a></li>
             </ul>
         </nav>
-    <hr>
+        <hr>
 <!-- end nav block -->
     
         <div class="row">
 <!-- start left col 8 wide block--> 
-    <div class="col-md-8">
+            <div class="col-md-8">
 <!-- start javascript contact form -->        
-        
+                <p class="text-center">
+                    <b>3 North Street, Swords, County Dublin</b><br />
+                    <b>Phone: (+3531) 8404697 | Fax: (+3531) 8401616</b> 
+                </p>
+                <p><h3>Send us a message</h3></p>
+                <form>
+                    <h1>Your Contact Information</h1>
+                    <hr>
+                    <!--<label for="emailAddress" class="col-sm-2 control-label">Email:</label>
+                    <input name = "email" type = "text" class="form-control" id="emailAddress" />
+                    -->
+                    <label for="inputEmail" class="col-sm-2 control-label">Email:</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail">
+                    </div>
 
+                    <label for="inputName" class="col-sm-2 control-label">Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputName">
+                    </div>
+                    
+                    <h1>Your Feedback</h1>
+                    <hr>
+                    <label for="inputSubject" class="col-sm-2 control-label">Subject:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputSubject">
+                    </div>
+                    <label for="inputMessage" class="col-sm-2 control-label">Message Body:</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" id="inputMessage" rows="3"></textarea>
+                    </div>
+        
+                    <label for="inputCopyToSelf" class="col-sm-2 control-label">Send copy to yourself:</label>
+                    <div class="col-sm-10">
+                        <input type="checkbox" class="form-control" value="" id="inputCopyToSelf">
+                    </div>
+        
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Send Feedback</button>
+                    </div>
+                </form>
+        
 <!-- end javascript contact form -->        
-</div>
+            </div>
 
 <!-- end left col 8 wide block--> 
 <!-- Start Services + find us here -->
-    <div class="col-md-4">
+            <div class="col-md-4">
                 <h2>Services</h2>
                 <p><a href="">Property Transactions</a></p> 
                 <p><a href="">Wills and Probate</a></p> 
@@ -58,24 +98,18 @@
                 <hr>
                 <a href="location.html">Find us here</a>
                 <img class="img-responsive img-rounded" src="img/office.jpg"/>
-        </div>
+            </div>
 <!-- end Services + find us here -->
+        </div>
+
+        <hr>
+        <footer>
+            <p>3 North Street, Swords, County Dublin | Phone: (+3531) 8404697 | Fax: (+3531) 8401616</p>
+            <p>Copyright 2014 by Patrick W. McGonagle & Co.  |  Login</p>
+        </footer>
     </div>
 
-    <hr>
-<footer>
-    <p>3 North Street, Swords, County Dublin | Phone: (+3531) 8404697 | Fax: (+3531) 8401616</p>
-<p>Copyright 2014 by Patrick W. McGonagle & Co.  |  Login</p></footer>
-</div>
-    
-
-        
-        
-    </body>
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">        </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

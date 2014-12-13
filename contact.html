@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">        </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrapValidator.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
    <!--[if IE]>
         <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
@@ -71,7 +72,7 @@
                 <p><h3>Send us a message</h3></p>
 				
 				
-				<form id="regexpEmailForm">
+				<form id="regexpEmailForm" name="form">
 
                     <h2>Your Contact Information</h2>
                     <hr> 
@@ -84,15 +85,15 @@
 					
                     <label for="inputName" class="col-sm-2 control-label">Name:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputName">
+                        <input type="text" class="form-control" id="inputName" name="fullname">
                     </div>
                     <label for="inputSubject" class="col-sm-2 control-label">Subject:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputSubject">
+                        <input type="text" class="form-control" id="inputSubject" name="subject">
                     </div>
                     <label for="inputMessage" class="col-sm-2 control-label">Message Body:</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" id="inputMessage" rows="3"></textarea>
+                        <textarea class="form-control" id="inputMessage" rows="3" name="message"></textarea>
                     </div>
         
                     <label for="inputCopyToSelf" class="col-sm-2 control-label">Send copy to yourself:</label>
@@ -101,51 +102,11 @@
                     </div>
         
                     <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Send Feedback</button>
+                        <button type="submit" class="btn btn-primary" onclick="return validation();">Send Feedback</button>
                     </div>
                 </form>
 
-				<script type="text/javascript">
-				$(document).ready(function() {
-					$('#regexpEmailForm')
-						.bootstrapValidator({
-							feedbackIcons: {
-								valid: 'glyphicon glyphicon-ok',
-								invalid: 'glyphicon glyphicon-remove',
-								validating: 'glyphicon glyphicon-refresh'
-							},
-							fields: {
-								email: {
-									validators: {
-										emailAddress: {
-											message: 'The value is not a valid email address'
-										},
-										regexp: {
-											regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
-											message: 'The value is not a valid email address'
-										}
-									}
-								}
-							}
-						})
-						.on('error.validator.bv', function(e, data) {
-							// data.bv        --> The BootstrapValidator instance
-							// data.field     --> The field name
-							// data.element   --> The field element
-							// data.validator --> The current validator name
 
-							if (data.field === 'email') {
-								// The email field is not valid
-								data.element
-									.data('bv.messages')
-									// Hide all the messages
-									.find('.help-block[data-bv-for="' + data.field + '"]').hide()
-									// Show only message associated with current validator
-									.filter('[data-bv-validator="' + data.validator + '"]').show();
-							}
-						});
-				});
-				</script>
 
 <!-- end javascript contact form --> 
             </div>

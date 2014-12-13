@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-IE">
 <head>
     <meta charset="UTF-8">
@@ -13,11 +13,34 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">        </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrapValidator.js"></script>
- 	<script type="text/javascript" src="js/custom.js"></script>
-  <!--[if IE]>
+   <!--[if IE]>
         <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	<script>
+        var XMLHttpRequestObject = false;
+
+        if (window.XMLHttpRequest) {
+            XMLHttpRequestObject = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            XMLHttpRequestObject = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        function getData(datasource, divID) {
+            if (XMLHttpRequestObject) {
+                var obj = document.getElementById(divID);
+                XMLHttpRequestObject.open("GET", datasource);
+                XMLHttpRequestObject.onreadystatechange = function () {
+                    if (XMLHttpRequestObject.readyState == 4 &&
+                        XMLHttpRequestObject.status == 200) {
+                        obj.innerHTML = XMLHttpRequestObject.responseText;
+                    }
+                }
+                XMLHttpRequestObject.send(null);
+            }
+        }
+    </script>
 
 </head>
 <body>
@@ -39,7 +62,7 @@
     
         <div class="row">
 <!-- start left col 8 wide block--> 
-            <div class="col-md-8">
+            <div class="col-md-8" id="col-md-1">
 <!-- start javascript contact form -->        
                 <p class="text-center">
                     <b>3 North Street, Swords, County Dublin</b><br />
@@ -48,7 +71,7 @@
                 <p><h3>Send us a message</h3></p>
 				
 				
-				<form id="regexpEmailForm" name="form">
+				<form id="regexpEmailForm">
 
                     <h2>Your Contact Information</h2>
                     <hr> 
@@ -61,15 +84,15 @@
 					
                     <label for="inputName" class="col-sm-2 control-label">Name:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputName" name="fullname">
+                        <input type="text" class="form-control" id="inputName">
                     </div>
                     <label for="inputSubject" class="col-sm-2 control-label">Subject:</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputSubject" name="subject">
+                        <input type="text" class="form-control" id="inputSubject">
                     </div>
                     <label for="inputMessage" class="col-sm-2 control-label">Message Body:</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" id="inputMessage" rows="3" name="message"></textarea>
+                        <textarea class="form-control" id="inputMessage" rows="3"></textarea>
                     </div>
         
                     <label for="inputCopyToSelf" class="col-sm-2 control-label">Send copy to yourself:</label>
@@ -78,10 +101,51 @@
                     </div>
         
                     <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary" onclick="return validation();">Send Feedback</button>
+                        <button type="submit" class="btn btn-primary">Send Feedback</button>
                     </div>
                 </form>
 
+				<script type="text/javascript">
+				$(document).ready(function() {
+					$('#regexpEmailForm')
+						.bootstrapValidator({
+							feedbackIcons: {
+								valid: 'glyphicon glyphicon-ok',
+								invalid: 'glyphicon glyphicon-remove',
+								validating: 'glyphicon glyphicon-refresh'
+							},
+							fields: {
+								email: {
+									validators: {
+										emailAddress: {
+											message: 'The value is not a valid email address'
+										},
+										regexp: {
+											regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
+											message: 'The value is not a valid email address'
+										}
+									}
+								}
+							}
+						})
+						.on('error.validator.bv', function(e, data) {
+							// data.bv        --> The BootstrapValidator instance
+							// data.field     --> The field name
+							// data.element   --> The field element
+							// data.validator --> The current validator name
+
+							if (data.field === 'email') {
+								// The email field is not valid
+								data.element
+									.data('bv.messages')
+									// Hide all the messages
+									.find('.help-block[data-bv-for="' + data.field + '"]').hide()
+									// Show only message associated with current validator
+									.filter('[data-bv-validator="' + data.validator + '"]').show();
+							}
+						});
+				});
+				</script>
 
 <!-- end javascript contact form --> 
             </div>
@@ -90,7 +154,7 @@
 <!-- Start Services + find us here -->
             <div class="col-md-4">
                 <h2>Services</h2>
-                <p><a href="">Property Transactions</a></p> 
+                <!-- <p><a href="">Property Transactions</a></p> 
                 <p><a href="">Wills and Probate</a></p> 
                 <p><a href="">Court Work, both Civil and Criminal</a>
                 <p><a href="">Family Law</a></p> 
@@ -100,9 +164,33 @@
                 <p><a href="">Personal Injuries</a></p> 
                 <p><a href="">Cohabitation Agreements</a></p> 
                 <p><a href="">Debt Collection</a></p> 
-                <hr>
+                <hr>-->
+				<form>
+					<input type="button" value="Property Transactions"
+						onclick = "getData('Property.txt', 'col-md-1')"><br>
+					<input type="button" value="Wills and Probate"
+						onclick = "getData('wills.txt', 'col-md-1')"><br>
+					<input type="button" value="Court Work, both Civil and Criminal"
+						onclick = "getData('court.txt', 'col-md-1')"><br>
+					<input type="button" value="Family Law"
+						onclick = "getData('family.txt', 'col-md-1')"><br>
+					<input type="button" value="Employment Law"
+						onclick = "getData('employment.txt', 'col-md-1')"><br>
+					<input type="button" value="Landlord & Tenant"
+						onclick = "getData('landlord.txt', 'col-md-1')"><br>
+					<input type="button" value="Enduring Powers of Attorney and Wards of Court"
+						onclick = "getData('enduring.txt', 'col-md-1')"><br>
+					<input type="button" value="Personal Injuries"
+						onclick = "getData('personal.txt', 'col-md-1')"><br>
+					<input type="button" value="Cohabitation Agreements"
+						onclick = "getData('cohabitation.txt', 'col-md-1')"><br>
+					<input type="button" value="Debt Collection"
+						onclick = "getData('debt.txt', 'col-md-1')"><br>
+		
+			</form>
                 <a href="location.html">Find us here</a>
                 <img class="img-responsive img-rounded" src="img/office.jpg"/>
+                <div id="col-md-1"></div>
             </div>
 <!-- end Services + find us here -->
         </div>

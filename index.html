@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,30 @@
         <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	<script>
+        var XMLHttpRequestObject = false;
+
+        if (window.XMLHttpRequest) {
+            XMLHttpRequestObject = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            XMLHttpRequestObject = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        function getData(datasource, divID) {
+            if (XMLHttpRequestObject) {
+                var obj = document.getElementById(divID);
+                XMLHttpRequestObject.open("GET", datasource);
+                XMLHttpRequestObject.onreadystatechange = function () {
+                    if (XMLHttpRequestObject.readyState == 4 &&
+                        XMLHttpRequestObject.status == 200) {
+                        obj.innerHTML = XMLHttpRequestObject.responseText;
+                    }
+                }
+                XMLHttpRequestObject.send(null);
+            }
+        }
+		</script>
 </head>
 
     <body>
@@ -37,7 +61,7 @@
     <hr>
 <!-- start left col 8 wide block--> 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8" id="col-md-1">
                 <br>
                 <img class="img-responsive img-rounded" src="img/group-picture.jpg" alt="McGonagle Solicitors Group Photo">
                 <hr>
@@ -51,8 +75,8 @@
 <!-- start services + find us -->
         <div class="col-md-4">
                 <h2>Services</h2>
-                <p><a href="">Property Transactions</a></p> 
-                <p><a href="">Wills and Probate</a></p> 
+              <!--<p><a href="Property.html">Property Transactions</a></p> 
+                 <p><a href="">Wills and Probate</a></p> 
                 <p><a href="">Court Work, both Civil and Criminal</a>
                 <p><a href="">Family Law</a></p> 
                 <p><a href="">Employment Law</a></p> 
@@ -61,10 +85,37 @@
                 <p><a href="">Personal Injuries</a></p> 
                 <p><a href="">Cohabitation Agreements</a></p> 
                 <p><a href="">Debt Collection</a></p> 
-                <hr>
+                <hr>-->
+				<form>
+					<input type="button" value="Property Transactions"
+						onclick = "getData('Property.txt','col-md-1')"><br>
+					<input type="button" value="Wills and Probate"
+						onclick = "getData('wills.txt','col-md-1')"><br>
+					<input type="button" value="Court Work, both Civil and Criminal"
+						onclick = "getData('court.txt', 'col-md-1')"><br>
+					<input type="button" value="Family Law"
+						onclick = "getData('family.txt', 'col-md-1')"><br>
+					<input type="button" value="Employment Law"
+						onclick = "getData('employment.txt','col-md-1')"><br>
+					<input type="button" value="Landlord & Tenant"
+						onclick = "getData('landlord.txt', 'col-md-1')"><br>
+					<input type="button" value="Enduring Powers of Attorney and Wards of Court"
+						onclick = "getData('enduring.txt', 'col-md-1')"><br>
+					<input type="button" value="Personal Injuries"
+						onclick = "getData('personal.txt', 'col-md-1')"><br>
+					<input type="button" value="Cohabitation Agreements"
+						onclick = "getData('cohabitation.txt', 'col-md-1')"><br>
+					<input type="button" value="Debt Collection"
+						onclick = "getData('debt.txt', 'col-md-1')"><br>
+		
+				</form>
+				
+			
                 <a href="location.html">Find us here</a>
                 <img class="img-responsive img-rounded" src="img/office.jpg" alt="Patrick McGonagle Solicitors Premisis"/>
-        </div>
+				<div id="col-md-1"></div>
+		</div>
+		
 <!-- end services + find us -->
 </div>
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="">
 <head>
     <meta charset="UTF-8">
@@ -123,55 +123,67 @@
     <hr>
 <!-- end nav block -->
     
-        <div class="row">
+<div class="row">
 <!-- start left col 8 wide block--> 
-<div class="col-md-8">
+    <div class="col-md-8">
 <!-- start google maps html -->        
-    <h1>Map</h1>
+        <h1>Map</h1>
 
 		
-		<div id="map" style="width:750px; height:600px"></div>
-		<div class="aspNetHidden">
-
-	  <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
-	  <input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
-      </div>
-		<div id="Address" style="width:800px; height:10px; float:center; color:black">
-		<blockquote>
-		<p><center>3 North Street, Swords, County Dublin</center></p> 
-        <p><center>Phone: (+3531) 8404697  Fax: (+3531) 8401616</center></p></div>
-	    </blockquote>
-
-<!-- end google maps html -->        
-</div>
+            <div id="map" style="width:750px; height:600px"></div>
+            <div class="aspNetHidden">
+            <input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334" />
+           <input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+            </div>
+<!-- end google maps html -->               
 <!-- end left col 8 wide block--> 
-
+ </div>
 <!-- Start Services + find us here -->
-    <div class="col-md-4">
-                <h2>Services</h2>
-                <p><a href="">Property Transactions</a></p> 
-                <p><a href="">Wills and Probate</a></p> 
-                <p><a href="">Court Work, both Civil and Criminal</a>
-                <p><a href="">Family Law</a></p> 
-                <p><a href="">Employment Law</a></p> 
-                <p><a href="">Landlord & Tenant</a></p> 
-                <p><a href="">Enduring Powers of Attorney and Wards of Court</a></p> 
-                <p><a href="">Personal Injuries</a></p> 
-                <p><a href="">Cohabitation Agreements</a></p> 
-                <p><a href="">Debt Collection</a></p> 
-                <hr>
-                <a href="location.html">Find us here</a>
-                <img class="img-responsive img-rounded" src="img/office.jpg"/>
-        </div>
+<div class="col-md-4">
+    <h2>Services</h2>
+    <div class="btn-group-vertical" role="group" aria-label="Services">
+
+
+				<form>
+					<input type="button" class="btn btn-default" value="Property Transactions"
+						onclick = "getData('Property.txt','col-md-1')"><br>
+					<input type="button" class="btn btn-default" value="Wills and Probate"
+						onclick = "getData('wills.txt','col-md-1')"><br>
+					<input type="button" class="btn btn-default" value="Court Work, both Civil and Criminal"
+						onclick = "getData('court.txt', 'col-md-1')"><br>
+					<input type="button" class="btn btn-default" value="Family Law"
+						onclick = "getData('family.txt', 'col-md-1')"><br>
+					<input type="button" class="btn btn-default" value="Employment Law"
+						onclick = "getData('employment.txt','col-md-1')"><br>
+					<input type="button" class="btn btn-default" value="Landlord & Tenant"
+						onclick = "getData('landlord.txt', 'col-md-1')"><br>
+					<input type="button" class="btn btn-default" value="Enduring Powers of Attorney and Wards of Court"
+						onclick = "getData('enduring.txt', 'col-md-1')"><br>
+					<input type="button" class="btn btn-default" value="Personal Injuries"
+						onclick = "getData('personal.txt', 'col-md-1')"><br>
+					<input type="button" class="btn btn-default" value="Cohabitation Agreements"
+						onclick = "getData('cohabitation.txt', 'col-md-1')"><br>
+					<input type="button" class="btn btn-default" value="Debt Collection"
+						onclick = "getData('debt.txt', 'col-md-1')"><br>
+		
+				</form>
+            </div>
 <!-- end Services + find us here -->
     </div>
-
+    </div>
     <hr>
-    
+<!-- Audio player code -->
+<div style="display: none;">
+    <audio autoplay="yes" controls="" loop="" preload="">
+        <source src="media/Smile.mp3" type="audio/mpeg"></source>
+         Your browser does not support the audio element.
+    </audio>
+</div>
+<!-- end audio player code -->
 <footer>
-   
-   <p>3 North Street, Swords, County Dublin | Phone: (+3531) 8404697 | Fax: (+3531) 8401616</p>
-   <p>Copyright 2014 by Patrick W. McGonagle & Co.  |  Login</p></footer>
+    <p>3 North Street, Swords, County Dublin | Phone: (+3531) 8404697 | Fax: (+3531) 8401616</p>
+<p>Copyright 2014 by Patrick W. McGonagle & Co.  |  Login</p>
+</footer>
 </div>    
 </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

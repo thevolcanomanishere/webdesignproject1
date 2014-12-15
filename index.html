@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="">
 <head>
     <meta charset="UTF-8">
@@ -43,7 +43,7 @@
 
     <body>
 <!-- start nav block -->
-<div class="middle-background">
+<div class="gradient">
     <div class="container">
         <div class="header-image">
             <img class="img-responsive img-rounded" src="img/mcg-logo-mid.png" alt="Patrick McGonagle Solicitors logo"/>
@@ -63,7 +63,10 @@
         <div class="row">
             <div class="col-md-8" id="col-md-1">
                 <br>
-                <img class="img-responsive img-rounded" src="img/group-picture.jpg" alt="McGonagle Solicitors Group Photo">
+            <!--    <img class="img-responsive img-rounded" src="img/group-picture.jpg" alt="McGonagle Solicitors Group Photo"> -->
+                <div id="video">
+                <iframe width="640" height="360" src="//www.youtube-nocookie.com/embed/r6Je3yK3YqM?autoplay=1"  frameborder="0" allowfullscreen></iframe>
+                </div>
                 <hr>
                 <h2>Welcome</h2>
                 <p>Patrick W. McGonagle & Co, is a Second Generation Solicitors Practice based on North Street, Swords, Co. Dublin.</p>
@@ -75,42 +78,31 @@
 <!-- start services + find us -->
         <div class="col-md-4">
                 <h2>Services</h2>
-              <!--<p><a href="Property.html">Property Transactions</a></p> 
-                 <p><a href="">Wills and Probate</a></p> 
-                <p><a href="">Court Work, both Civil and Criminal</a>
-                <p><a href="">Family Law</a></p> 
-                <p><a href="">Employment Law</a></p> 
-                <p><a href="">Landlord & Tenant</a></p> 
-                <p><a href="">Enduring Powers of Attorney and Wards of Court</a></p> 
-                <p><a href="">Personal Injuries</a></p> 
-                <p><a href="">Cohabitation Agreements</a></p> 
-                <p><a href="">Debt Collection</a></p> 
-                <hr>-->
+            <div class="btn-group-vertical" role="group" aria-label="test">
 				<form>
-					<input type="button" value="Property Transactions"
+					<input type="button" class="btn btn-default" value="Property Transactions"
 						onclick = "getData('Property.txt','col-md-1')"><br>
-					<input type="button" value="Wills and Probate"
+					<input type="button" class="btn btn-default" value="Wills and Probate"
 						onclick = "getData('wills.txt','col-md-1')"><br>
-					<input type="button" value="Court Work, both Civil and Criminal"
+					<input type="button" class="btn btn-default" value="Court Work, both Civil and Criminal"
 						onclick = "getData('court.txt', 'col-md-1')"><br>
-					<input type="button" value="Family Law"
+					<input type="button" class="btn btn-default" value="Family Law"
 						onclick = "getData('family.txt', 'col-md-1')"><br>
-					<input type="button" value="Employment Law"
+					<input type="button" class="btn btn-default" value="Employment Law"
 						onclick = "getData('employment.txt','col-md-1')"><br>
-					<input type="button" value="Landlord & Tenant"
+					<input type="button" class="btn btn-default" value="Landlord & Tenant"
 						onclick = "getData('landlord.txt', 'col-md-1')"><br>
-					<input type="button" value="Enduring Powers of Attorney and Wards of Court"
+					<input type="button" class="btn btn-default" value="Enduring Powers of Attorney and Wards of Court"
 						onclick = "getData('enduring.txt', 'col-md-1')"><br>
-					<input type="button" value="Personal Injuries"
+					<input type="button" class="btn btn-default" value="Personal Injuries"
 						onclick = "getData('personal.txt', 'col-md-1')"><br>
-					<input type="button" value="Cohabitation Agreements"
+					<input type="button" class="btn btn-default" value="Cohabitation Agreements"
 						onclick = "getData('cohabitation.txt', 'col-md-1')"><br>
-					<input type="button" value="Debt Collection"
+					<input type="button" class="btn btn-default" value="Debt Collection"
 						onclick = "getData('debt.txt', 'col-md-1')"><br>
-		
 				</form>
-				
-			
+                </div>
+			<hr>
                 <a href="location.html">Find us here</a>
                 <img class="img-responsive img-rounded" src="img/office.jpg" alt="Patrick McGonagle Solicitors Premisis"/>
 				<div id="col-md-1"></div>
